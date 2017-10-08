@@ -1,0 +1,10 @@
+Package: areaplot
+Version: 1.0-0
+Date: 2017-10-08
+Title: Stacked Area Plot
+Authors@R: person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk")
+Imports: graphics, grDevices, stats
+Suggests: MASS
+Description: Produce a stacked area plot, or add polygons to an existing plot.
+License: GPL (>= 2)
+RoxygenNote: 6.0.1
