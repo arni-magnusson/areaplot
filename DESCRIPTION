@@ -7,6 +7,7 @@ Imports: graphics, grDevices, stats
 Suggests: MASS
 Description: Produce a stacked area plot, or add polygons to an existing plot.
   The data can be a numeric vector, table, matrix, data frame, or a time-series
-  object.
+  object. Supports formula syntax and data can be plotted as proportions, so
+  stacked areas equal 1.
 License: GPL (>= 2)
 RoxygenNote: 6.0.1
