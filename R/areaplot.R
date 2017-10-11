@@ -80,6 +80,7 @@
 #' # legend
 #' areaplot(table(Aids2$age, Aids2$sex), legend=TRUE)
 #' areaplot(WorldPhones, legend=TRUE, args.legend=list(x="topleft"))
+#'
 #' @export
 
 areaplot <- function(x, ...)
