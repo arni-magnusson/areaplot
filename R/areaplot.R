@@ -58,6 +58,10 @@
 #' plot(1940:1970, 500*runif(31), ylim=c(0,500))
 #' areaplot(Armed.Forces~Year, data=longley, add=TRUE)
 #'
+#' # data frame
+#' mydata <- longley[c("Year","GNP")]
+#' areaplot(mydata)
+#'
 #' # matrix
 #' areaplot(WorldPhones)
 #' areaplot(WorldPhones, prop=TRUE)
