@@ -9,21 +9,23 @@
 areaplot(x, ...)
 
 \method{areaplot}{default}(x, y = NULL, prop = FALSE, add = FALSE,
-  xlab = NULL, ylab = NULL, col = NULL, ...)
+  xlab = NULL, ylab = NULL, col = NULL, legend = FALSE,
+  args.legend = NULL, ...)
 
 \method{areaplot}{formula}(formula, data, subset, na.action = NULL, ...)
 }
 \arguments{
-\item{x}{numeric vector of x values, or if \code{y=NULL} a numeric vector of
-y values. Can also be a 1-dimensional table (x values in names, y
+\item{x}{a numeric vector of x values, or if \code{y=NULL} a numeric vector
+of y values. Can also be a 1-dimensional table (x values in names, y
 values in array), matrix or 2-dimensional table (x values in row names
 and y values in columns), a data frame (x values in first column and y
 values in subsequent columns), or a time-series object of class
 \code{ts/mts}.}
 
-\item{\dots}{further arguments passed to \code{matplot} and \code{polygon}.}
+\item{\dots}{further arguments passed to \code{areaplot.default},
+\code{matplot}, and \code{polygon}.}
 
-\item{y}{numeric vector of y values, or a matrix containing y values in
+\item{y}{a numeric vector of y values, or a matrix containing y values in
 columns.}
 
 \item{prop}{whether data should be plotted as proportions, so stacked areas
@@ -31,11 +33,18 @@ equal 1.}
 
 \item{add}{whether polygons should be added to an existing plot.}
 
-\item{xlab}{label for x axis.}
+\item{xlab}{a label for x axis.}
 
-\item{ylab}{label for y axis.}
+\item{ylab}{a label for y axis.}
 
 \item{col}{fill color of polygon(s). The default is a vector of gray colors.}
+
+\item{legend}{a logical indicating whether a legend should be added, or a
+vector of strings for the legend. This only applies when more than one
+series is plotted.}
+
+\item{args.legend}{a list of additional arguments to pass to the
+\code{\link{legend}} function.}
 
 \item{formula}{a \code{\link{formula}}, such as \code{y~x} or
 \code{cbind(y1,y2)~x}, specifying x and y values. A dot on the
@@ -86,6 +95,9 @@ areaplot(Seatbelts[,c("drivers","front","rear")],
          ylab="Killed or seriously injured")
 abline(v=1983+1/12, lty=3)
 
+# legend
+areaplot(table(Aids2$age, Aids2$sex), legend=TRUE)
+areaplot(WorldPhones, legend=TRUE, args.legend=list(x="topleft"))
 }
 \seealso{
 \code{\link{barplot}}, \code{\link{polygon}}

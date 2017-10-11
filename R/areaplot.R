@@ -2,20 +2,25 @@
 #'
 #' Produce a stacked area plot, or add polygons to an existing plot.
 #'
-#' @param x numeric vector of x values, or if \code{y=NULL} a numeric vector of
-#'        y values. Can also be a 1-dimensional table (x values in names, y
+#' @param x a numeric vector of x values, or if \code{y=NULL} a numeric vector
+#'        of y values. Can also be a 1-dimensional table (x values in names, y
 #'        values in array), matrix or 2-dimensional table (x values in row names
 #'        and y values in columns), a data frame (x values in first column and y
 #'        values in subsequent columns), or a time-series object of class
 #'        \code{ts/mts}.
-#' @param y numeric vector of y values, or a matrix containing y values in
+#' @param y a numeric vector of y values, or a matrix containing y values in
 #'        columns.
 #' @param prop whether data should be plotted as proportions, so stacked areas
 #'        equal 1.
 #' @param add whether polygons should be added to an existing plot.
-#' @param xlab label for x axis.
-#' @param ylab label for y axis.
+#' @param xlab a label for x axis.
+#' @param ylab a label for y axis.
 #' @param col fill color of polygon(s). The default is a vector of gray colors.
+#' @param legend a logical indicating whether a legend should be added, or a
+#'        vector of strings for the legend. This only applies when more than one
+#'        series is plotted.
+#' @param args.legend a list of additional arguments to pass to the
+#'        \code{\link{legend}} function.
 #' @param formula a \code{\link{formula}}, such as \code{y~x} or
 #'        \code{cbind(y1,y2)~x}, specifying x and y values. A dot on the
 #'        left-hand side, \code{.~x}, means all variables except the one
@@ -27,7 +32,8 @@
 #' @param na.action a function which indicates what should happen when the data
 #'        contain \code{NA} values. The default is to ignore missing values in
 #'        the given variables.
-#' @param \dots further arguments passed to \code{matplot} and \code{polygon}.
+#' @param \dots further arguments passed to \code{areaplot.default},
+#'        \code{matplot}, and \code{polygon}.
 #'
 #' @return
 #' Matrix of cumulative sums that was used for plotting.
@@ -35,7 +41,7 @@
 #' @seealso
 #' \code{\link{barplot}}, \code{\link{polygon}}
 #'
-#' @importFrom graphics matplot polygon
+#' @importFrom graphics legend matplot polygon
 #' @importFrom grDevices gray.colors
 #' @importFrom stats is.ts time
 #'
@@ -67,6 +73,9 @@
 #'          ylab="Killed or seriously injured")
 #' abline(v=1983+1/12, lty=3)
 #'
+#' # legend
+#' areaplot(table(Aids2$age, Aids2$sex), legend=TRUE)
+#' areaplot(WorldPhones, legend=TRUE, args.legend=list(x="topleft"))
 #' @export
 
 areaplot <- function(x, ...)
@@ -79,7 +88,8 @@ areaplot <- function(x, ...)
 #' @export areaplot.default
 
 areaplot.default <- function(x, y=NULL, prop=FALSE, add=FALSE, xlab=NULL,
-                             ylab=NULL, col=NULL, ...)
+                             ylab=NULL, col=NULL, legend=FALSE,
+                             args.legend=NULL, ...)
 {
   if(is.ts(x)) # ts/mts
   {
@@ -155,6 +165,23 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, add=FALSE, xlab=NULL,
   {
     yy <- c(y[,i+1], rev(y[,i]))
     suppressWarnings(polygon(xx, yy, col=col[i], ...))
+  }
+
+  if(is.logical(legend))
+    legend <- if(legend && ncol(y)>=3) colnames(y)[-1]
+  if(!is.null(legend))
+  {
+    if(is.null(args.legend))
+    {
+      legend("topright", legend=rev(legend), fill=rev(col), bty="n", inset=0.02)
+    }
+    else
+    {
+      args.legend1 <- list(x="topright", legend=rev(legend), fill=rev(col), bty="n",
+                           inset=0.02)
+      args.legend1[names(args.legend)] <- args.legend
+      do.call("legend", args.legend1)
+    }
   }
 
   invisible(y[,-1])
