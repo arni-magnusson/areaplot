@@ -3,7 +3,8 @@
 
 # areaplot
 
-## Plot Stacked Areas and Confidence Bands
+## Plot Stacked Areas and Confidence Bands as Filled Polygons
 
-Plot functions to draw stacked areas and confidence bands. A variety of input
-formats are supported, including vectors, matrices, data frames, formulas, etc.
+Plot stacked areas and confidence bands as filled polygons, or add polygons to
+existing plots. A variety of input formats are supported, including vectors,
+matrices, data frames, formulas, etc.

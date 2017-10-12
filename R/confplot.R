@@ -1,7 +1,7 @@
 #' Plot Confidence Bands
 #'
-#' Plot confidence intervals of lower and upper y values as a filled polygon, or
-#' add polygon to an existing plot.
+#' Plot confidence bands of lower and upper y values as a filled area, or add
+#' polygon to an existing plot.
 #'
 #' @param x a numeric vector of x values. Alternatively, \code{x} can be a
 #'        matrix or data frame containing x values in the first column and lower
@@ -35,7 +35,7 @@
 #' @seealso
 #' \code{\link{polygon}}
 #'
-#' The \pkg{gplots} and \pkg{plotrix} packages provide functions to draw error bars.
+#' The \pkg{gplots} and \pkg{plotrix} packages provide functions to plot error bars.
 #'
 #' @importFrom graphics matplot polygon
 #'

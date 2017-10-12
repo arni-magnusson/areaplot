@@ -1,12 +1,12 @@
 Package: areaplot
 Version: 1.2-0
 Date: 2017-10-12
-Title: Plot Stacked Areas and Confidence Bands
+Title: Plot Stacked Areas and Confidence Bands as Filled Polygons
 Authors@R: person("Arni", "Magnusson", role=c("aut","cre"), email="arni.magnusson@ices.dk")
 Imports: graphics, grDevices, stats
 Suggests: MASS
-Description: Plot functions to draw stacked areas and confidence bands. A
-  variety of input formats are supported, including vectors, matrices,
-  data frames, formulas, etc.
+Description: Plot stacked areas and confidence bands as filled polygons, or add
+  polygons to existing plots. A variety of input formats are supported,
+  including vectors, matrices, data frames, formulas, etc.
 License: GPL (>= 2)
 RoxygenNote: 6.0.1
