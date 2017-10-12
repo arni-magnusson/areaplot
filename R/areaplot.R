@@ -39,7 +39,11 @@
 #' Matrix of cumulative sums that was used for plotting.
 #'
 #' @seealso
-#' \code{\link{barplot}}, \code{\link{polygon}}
+#' \code{\link{polygon}} is the underlying function used to draw polygons.
+#'
+#' \code{\link{confplot}} plots confidence bands as a filled area.
+#'
+#' \code{\link{areaplot-package}} gives an overview of the package.
 #'
 #' @importFrom graphics legend matplot polygon
 #' @importFrom grDevices gray.colors
