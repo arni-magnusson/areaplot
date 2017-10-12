@@ -102,6 +102,7 @@ abline(v=1983+1/12, lty=3)
 # legend
 areaplot(table(Aids2$age, Aids2$sex), legend=TRUE)
 areaplot(WorldPhones, legend=TRUE, args.legend=list(x="topleft"))
+
 }
 \seealso{
 \code{\link{barplot}}, \code{\link{polygon}}
