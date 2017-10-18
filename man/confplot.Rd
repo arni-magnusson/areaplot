@@ -85,9 +85,9 @@ points(log(dist)~log(speed), cars)
 \seealso{
 \code{\link{polygon}} is the underlying function used to draw polygons.
 
-The \pkg{gplots} and \pkg{plotrix} packages provide functions to plot error bars.
-
 \code{\link{areaplot}} produces a stacked area plot.
 
 \code{\link{areaplot-package}} gives an overview of the package.
+
+The \pkg{gplots} and \pkg{plotrix} packages provide functions to plot error bars.
 }
