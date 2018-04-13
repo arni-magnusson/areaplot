@@ -1,5 +1,6 @@
 [![CRAN Status](http://r-pkg.org/badges/version/areaplot)](https://cran.r-project.org/package=areaplot)
-[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/areaplot)](https://cran.r-project.org/package=areaplot)
+[![CRAN Monthly](http://cranlogs.r-pkg.org/badges/areaplot)](https://cran.r-project.org/package=areaplot)
+[![CRAN Total](http://cranlogs.r-pkg.org/badges/grand-total/areaplot)](https://cran.r-project.org/package=areaplot)
 
 # areaplot
 
