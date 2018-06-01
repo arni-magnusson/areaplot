@@ -186,8 +186,8 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, add=FALSE, xlab=NULL,
     }
     else
     {
-      args.legend1 <- list(x="topright", legend=rev(legend), fill=rev(col), bty="n",
-                           inset=0.02)
+      args.legend1 <- list(x="topright", legend=rev(legend), fill=rev(col),
+                           bty="n", inset=0.02)
       args.legend1[names(args.legend)] <- args.legend
       do.call("legend", args.legend1)
     }
