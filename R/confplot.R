@@ -127,7 +127,7 @@ confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
 #' @export
 #' @export confplot.formula
 
-confplot.formula <- function (formula, data, subset, na.action=NULL, ...)
+confplot.formula <- function(formula, data, subset, na.action=NULL, ...)
 {
   m <- match.call(expand.dots=FALSE)
   if(is.matrix(eval(m$data,parent.frame())))

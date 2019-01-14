@@ -200,7 +200,7 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, add=FALSE, xlab=NULL,
 #' @export
 #' @export areaplot.formula
 
-areaplot.formula <- function (formula, data, subset, na.action=NULL, ...)
+areaplot.formula <- function(formula, data, subset, na.action=NULL, ...)
 {
   m <- match.call(expand.dots=FALSE)
   if(is.matrix(eval(m$data,parent.frame())))
