@@ -10,4 +10,4 @@ Description: Plot stacked areas and confidence bands as filled polygons, or add
   including vectors, matrices, data frames, formulas, etc.
 License: GPL (>= 2)
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
