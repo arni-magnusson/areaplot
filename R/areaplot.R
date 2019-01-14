@@ -207,7 +207,7 @@ areaplot.formula <- function(formula, data, subset, na.action=NULL, ...)
     m$data <- as.data.frame(data)
   m$... <- NULL
   m[[1]] <- as.name("model.frame")
-  if(as.character(formula[[2]]=="."))
+  if(formula[[2]] == ".")
   {
     rhs <- unlist(strsplit(deparse(formula[[3]])," *[:+] *"))
     lhs <- sprintf("cbind(%s)", paste(setdiff(names(data),rhs),collapse=","))
