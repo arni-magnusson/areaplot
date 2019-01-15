@@ -133,7 +133,7 @@ confplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   if(is.matrix(eval(m$data,parent.frame())))
     m$data <- as.data.frame(data)
   m$... <- NULL
-  m[[1]] <- as.name("model.frame")
+  m[[1]] <- quote(model.frame)
 
   mf <- eval(m, parent.frame())
   if(is.matrix(mf[[1]]))
