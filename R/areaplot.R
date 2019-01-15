@@ -47,7 +47,7 @@
 #'
 #' @importFrom graphics legend matplot polygon
 #' @importFrom grDevices gray.colors
-#' @importFrom stats is.ts time
+#' @importFrom stats is.ts terms time
 #'
 #' @examples
 #' areaplot(rpois(10,40))
@@ -209,9 +209,10 @@ areaplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   m[[1]] <- quote(model.frame)
   if(formula[[2]] == ".")
   {
-    rhs <- unlist(strsplit(deparse(formula[[3]])," *[:+] *"))
-    lhs <- sprintf("cbind(%s)", paste(setdiff(names(data),rhs),collapse=","))
-    m[[2]][[2]] <- parse(text=lhs)[[1]]
+    rhs <- as.list(attr(terms(formula[-2]),"variables")[-1])
+    lhs <- as.call(c(quote(cbind), setdiff(lapply(names(data),as.name),rhs)))
+    formula[[2L]] <- lhs
+    m[[2L]] <- formula
   }
 
   mf <- eval(m, parent.frame())
