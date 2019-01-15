@@ -209,6 +209,7 @@ areaplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   m[[1]] <- quote(model.frame)
   if(formula[[2]] == ".")
   {
+    ## LHS is .
     rhs <- as.list(attr(terms(formula[-2]),"variables")[-1])
     lhs <- as.call(c(quote(cbind), setdiff(lapply(names(data),as.name),rhs)))
     formula[[2L]] <- lhs
@@ -218,8 +219,8 @@ areaplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   mf <- eval(m, parent.frame())
   if(is.matrix(mf[[1]]))
   {
+    ## LHS is cbind()
     lhs <- as.data.frame(mf[[1]])
-    names(lhs) <- as.character(m[[2]][[2]])[-1]
     areaplot.default(cbind(mf[-1],lhs), ...)
   }
   else

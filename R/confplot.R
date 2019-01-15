@@ -138,8 +138,8 @@ confplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   mf <- eval(m, parent.frame())
   if(is.matrix(mf[[1]]))
   {
+    ## LHS is cbind()
     lhs <- as.data.frame(mf[[1]])
-    names(lhs) <- as.character(m[[2]][[2]])[-1]
     confplot.default(cbind(mf[-1],lhs), ...)
   }
   else
