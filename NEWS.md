@@ -1,3 +1,10 @@
+# areaplot 1.2.3 (2022-11-11)
+
+* Improved handling of spaces in axis labels and legend.
+
+
+
+
 # areaplot 1.2.2 (2020-11-23)
 
 * Maintenance release.
