@@ -35,8 +35,7 @@
 #' @param \dots further arguments passed to \code{areaplot.default},
 #'        \code{matplot}, and \code{polygon}.
 #'
-#' @return
-#' Matrix of cumulative sums that was used for plotting.
+#' @return Matrix of cumulative sums that was used for plotting.
 #'
 #' @seealso
 #' \code{\link{polygon}} is the underlying function used to draw polygons.

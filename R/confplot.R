@@ -29,8 +29,7 @@
 #' @param \dots further arguments passed to \code{confplot.default},
 #'        \code{matplot}, and \code{polygon}.
 #'
-#' @return
-#' Data frame of coordinates that were used for plotting.
+#' @return Data frame of coordinates that were used for plotting.
 #'
 #' @seealso
 #' \code{\link{polygon}} is the underlying function used to draw polygons.
