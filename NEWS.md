@@ -1,3 +1,11 @@
+# areaplot 1.2.4 (2023-05-20)
+
+* Added confplot() support for 'y1' and 'y2' of length 1 to draw unusual
+  polygons.
+
+
+
+
 # areaplot 1.2.3 (2022-11-11)
 
 * Improved handling of spaces in axis labels and legend.

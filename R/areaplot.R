@@ -151,12 +151,15 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, add=FALSE, xlab=NULL,
     y <- x
     x <- seq_along(x)
   }
+
   if(is.null(xlab))
     xlab <- deparse(substitute(x))
   if(is.null(ylab))
     ylab <- deparse(substitute(y))
 
   y <- as.matrix(y)
+  if(length(x) != nrow(y))
+    stop("'x' and 'y' lengths differ")
   if(is.null(col))
     col <- gray.colors(ncol(y))
   col <- rep(col, length.out=ncol(y))
