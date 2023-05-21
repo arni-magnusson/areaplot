@@ -1,6 +1,6 @@
 Package: areaplot
-Version: 1.2.4
-Date: 2023-05-20
+Version: 2.0.0
+Date: 2023-05-21
 Title: Plot Stacked Areas and Confidence Bands as Filled Polygons
 Authors@R: person("Arni", "Magnusson", role=c("aut","cre"), email="thisisarni@gmail.com")
 Imports: graphics, grDevices, stats

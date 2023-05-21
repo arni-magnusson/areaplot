@@ -1,4 +1,7 @@
-# areaplot 1.2.4 (2023-05-20)
+# areaplot 2.0.0 (2023-05-21)
+
+* Added argument 'rev' to areaplot() to plot the stacked areas from bottom to
+  top. The new default is to plot from top to bottom.
 
 * Added confplot() support for 'y1' and 'y2' of length 1 to draw unusual
   polygons.
