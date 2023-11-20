@@ -125,9 +125,9 @@ confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
   y2 <- y2[!na][order(x[!na])]
 
   if(!add)
-    suppressWarnings(matplot(range(x), range(c(y1,y2)), type="n",
+    suppressWarnings(matplot(range(x), range(c(y1, y2)), type="n",
                              xlab=xlab, ylab=ylab, ...))
-  polygon(c(x,rev(x)), c(y1,rev(y2)), border=border, col=col, ...)
+  polygon(c(x, rev(x)), c(y1, rev(y2)), border=border, col=col, ...)
 
   invisible(data.frame(x, y1, y2))
 }
@@ -139,7 +139,7 @@ confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
 confplot.formula <- function(formula, data, subset, na.action=NULL, ...)
 {
   m <- match.call(expand.dots=FALSE)
-  if(is.matrix(eval(m$data,parent.frame())))
+  if(is.matrix(eval(m$data, parent.frame())))
     m$data <- as.data.frame(data)
   m$... <- NULL
   m[[1]] <- quote(model.frame)
@@ -149,7 +149,7 @@ confplot.formula <- function(formula, data, subset, na.action=NULL, ...)
   {
     ## LHS is cbind()
     lhs <- as.data.frame(mf[[1]])
-    confplot.default(cbind(mf[-1],lhs), ...)
+    confplot.default(cbind(mf[-1], lhs), ...)
   }
   else
   {
