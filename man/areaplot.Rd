@@ -12,7 +12,8 @@ areaplot(x, ...)
   add = FALSE, xlab = NULL, ylab = NULL, col = NULL, legend = FALSE,
   args.legend = NULL, ...)
 
-\method{areaplot}{formula}(formula, data, subset, na.action = NULL, ...)
+\method{areaplot}{formula}(formula, data, subset, na.action, xlab = NULL,
+  ylab = NULL, ...)
 }
 \arguments{
 \item{x}{a numeric vector of x values, or if \code{y=NULL} a numeric vector
@@ -77,7 +78,6 @@ areaplot(rnorm(10))
 # formula
 areaplot(Armed.Forces~Year, data=longley)
 areaplot(cbind(Armed.Forces,Unemployed)~Year, data=longley)
-areaplot(.~Year, data=longley)
 
 # add=TRUE
 plot(1940:1970, 500*runif(31), ylim=c(0,500))
