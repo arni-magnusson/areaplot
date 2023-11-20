@@ -23,10 +23,10 @@
 #'        series is plotted.
 #' @param args.legend a list of additional arguments to pass to the
 #'        \code{\link{legend}} function.
-#' @param formula a \code{\link{formula}}, such as \code{y~x} or
-#'        \code{cbind(y1,y2)~x}, specifying x and y values. A dot on the
-#'        left-hand side, \code{.~x}, means all variables except the one
-#'        specified on the right-hand side.
+#' @param formula a \code{\link{formula}}, such as \code{y~x},
+#'        \code{cbind(y1,y2)~x}, or \code{y~x+group}, specifying x and y values.
+#'        A dot on the left-hand side, \code{.~x}, means all variables except
+#'        the one specified on the right-hand side.
 #' @param data a data frame (or list) from which the variables in formula should
 #'        be taken.
 #' @param subset an optional vector specifying a subset of observations to be
@@ -54,6 +54,7 @@
 #' areaplot(Armed.Forces~Year, data=longley)
 #' areaplot(cbind(Armed.Forces,Unemployed)~Year, data=longley)
 #' areaplot(.~Year, data=longley)
+#' areaplot(circumference~age+Tree, Orange)
 #'
 #' # add=TRUE
 #' plot(1940:1970, 500*runif(31), ylim=c(0,500))
