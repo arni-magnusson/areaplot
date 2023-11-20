@@ -218,42 +218,42 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, rev=FALSE, add=FALSE,
 areaplot.formula <- function(formula, data, subset, na.action, xlab=NULL,
                              ylab=NULL, ...)
 {
-  if(missing(formula) || length(formula) != 3L)
+  if(missing(formula) || length(formula) != 3)
     stop("'formula' missing or incorrect")
   m <- match.call(expand.dots=FALSE)
   if(is.matrix(eval(m$data, parent.frame())))
     m$data <- as.data.frame(data)
   m$... <- m$xlab <- m$ylab <- NULL
-  m[[1L]] <- quote(model.frame)
-  if(formula[[2L]] == ".")
+  m[[1]] <- quote(model.frame)
+  if(formula[[2]] == ".")
   {
     # LHS is .
-    rhs <- as.list(attr(terms(formula[-2L]), "variables")[-1])
+    rhs <- as.list(attr(terms(formula[-2]), "variables")[-1])
     lhs <- as.call(c(quote(cbind), setdiff(lapply(names(data), as.name), rhs)))
-    formula[[2L]] <- lhs
-    m[[2L]] <- formula
+    formula[[2]] <- lhs
+    m[[2]] <- formula
   }
 
   mf <- eval(m, parent.frame())
-  if(ncol(mf[-1L]) == 0L || ncol(mf[-1L]) >= 3L)
+  if(ncol(mf[-1]) == 0 || ncol(mf[-1]) >= 3)
     stop("formula must specify 1 or 2 categorical variables")
-  if(anyDuplicated(mf[-1L]))
+  if(anyDuplicated(mf[-1]))
     stop("duplicated categorical values - try another formula or subset")
   if(is.null(xlab))
-    xlab <- names(mf)[ncol(mf)]
-  if(is.matrix(mf[[1L]]))
+    xlab <- names(mf)[2]
+  if(is.matrix(mf[[1]]))
   {
     # LHS is cbind()
-    if(ncol(mf[-1L]) != 1L)
+    if(ncol(mf[-1]) != 1)
       stop("formula with cbind() must specify 1 categorical variable")
-    lhs <- mf[[1L]]
+    lhs <- mf[[1]]
     rownames(lhs) <- mf[[ncol(mf)]]
     areaplot.default(lhs, xlab=xlab, ylab=ylab, ...)
   }
   else
   {
     if(is.null(ylab))
-      ylab <- names(mf)[1L]
+      ylab <- names(mf)[1]
     areaplot.default(xtabs(mf, addNA=TRUE), xlab=xlab, ylab=ylab, ...)
   }
 }
