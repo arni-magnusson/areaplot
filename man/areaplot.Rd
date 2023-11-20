@@ -78,6 +78,7 @@ areaplot(rnorm(10))
 # formula
 areaplot(Armed.Forces~Year, data=longley)
 areaplot(cbind(Armed.Forces,Unemployed)~Year, data=longley)
+areaplot(.~Year, data=longley)
 
 # add=TRUE
 plot(1940:1970, 500*runif(31), ylim=c(0,500))

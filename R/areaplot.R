@@ -53,6 +53,7 @@
 #' # formula
 #' areaplot(Armed.Forces~Year, data=longley)
 #' areaplot(cbind(Armed.Forces,Unemployed)~Year, data=longley)
+#' areaplot(.~Year, data=longley)
 #'
 #' # add=TRUE
 #' plot(1940:1970, 500*runif(31), ylim=c(0,500))
@@ -223,6 +224,14 @@ areaplot.formula <- function(formula, data, subset, na.action, xlab=NULL,
     m$data <- as.data.frame(data)
   m$... <- m$xlab <- m$ylab <- NULL
   m[[1L]] <- quote(model.frame)
+  if(formula[[2L]] == ".")
+  {
+    # LHS is .
+    rhs <- as.list(attr(terms(formula[-2L]), "variables")[-1])
+    lhs <- as.call(c(quote(cbind), setdiff(lapply(names(data), as.name), rhs)))
+    formula[[2L]] <- lhs
+    m[[2L]] <- formula
+  }
 
   mf <- eval(m, parent.frame())
   if(ncol(mf[-1L]) == 0L || ncol(mf[-1L]) >= 3L)
@@ -236,8 +245,8 @@ areaplot.formula <- function(formula, data, subset, na.action, xlab=NULL,
     # LHS is cbind()
     if(ncol(mf[-1L]) != 1L)
       stop("formula with cbind() must specify 1 categorical variable")
-    lhs <- t(mf[[1L]])
-    colnames(lhs) <- mf[[ncol(mf)]]
+    lhs <- mf[[1L]]
+    rownames(lhs) <- mf[[ncol(mf)]]
     areaplot.default(lhs, xlab=xlab, ylab=ylab, ...)
   }
   else
