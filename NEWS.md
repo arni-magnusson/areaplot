@@ -1,4 +1,4 @@
-# areaplot 2.1.0 (2023-11-20)
+# areaplot 2.1.1 (2023-11-20)
 
 * Added formula support for areaplot(y~x+group).
 
