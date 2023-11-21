@@ -79,7 +79,7 @@ confplot <- function(x, ...)
 confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
                              ylab=NULL, border=NA, col="lightgray", ...)
 {
-  if(is.vector(x))
+  if(inherits(x, c("integer", "numeric", "Date", "POSIXt")))
   {
     if(is.null(xlab))
       xlab <- deparse(substitute(x))
