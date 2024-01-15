@@ -120,9 +120,9 @@ confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
     ylab <- ""
 
   na <- is.na(x) | is.na(y1) | is.na(y2)
-  x <- x[!na][order(x[!na])]
-  y1 <- y1[!na][order(x[!na])]
-  y2 <- y2[!na][order(x[!na])]
+  y1 <- y1[!na][order(x[!na])]  # reorder y1 by x
+  y2 <- y2[!na][order(x[!na])]  # reorder y2 by x
+  x <- x[!na][order(x[!na])]    # reorder x last
 
   if(!add)
     suppressWarnings(matplot(range(x), range(c(y1, y2)), type="n",
