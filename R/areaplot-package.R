@@ -1,5 +1,3 @@
-#' @docType package
-#'
 #' @name areaplot-package
 #'
 #' @title Plot Stacked Areas and Confidence Bands as Filled Polygons
@@ -18,4 +16,4 @@
 #'
 #' @author Arni Magnusson.
 
-NA
+"_PACKAGE"
