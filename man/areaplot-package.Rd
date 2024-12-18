@@ -16,6 +16,13 @@ vectors, matrices, data frames, formulas, etc.
   \code{\link{confplot}} \tab confidence bands
 }
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/arni-magnusson/areaplot}
+}
+
+}
 \author{
 Arni Magnusson.
 }
