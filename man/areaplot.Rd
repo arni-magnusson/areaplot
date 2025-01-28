@@ -9,8 +9,8 @@
 areaplot(x, ...)
 
 \method{areaplot}{default}(x, y = NULL, prop = FALSE, rev = FALSE,
-  add = FALSE, xlab = NULL, ylab = NULL, col = NULL, legend = FALSE,
-  args.legend = NULL, ...)
+  add = FALSE, xlab = NULL, ylab = NULL, border = NULL, col = NULL,
+  legend = FALSE, args.legend = NULL, ...)
 
 \method{areaplot}{formula}(formula, data, subset, na.action, xlab = NULL,
   ylab = NULL, ...)
@@ -40,6 +40,9 @@ top to bottom.}
 \item{xlab}{a label for x axis.}
 
 \item{ylab}{a label for y axis.}
+
+\item{border}{border color of polygon(s). The default is to draw borders in
+the foreground color. Pass \code{NA} to omit borders.}
 
 \item{col}{fill color of polygon(s). The default is a vector of gray colors.}
 
@@ -103,6 +106,10 @@ areaplot(austres)
 areaplot(Seatbelts[,c("drivers","front","rear")],
          ylab="Killed or seriously injured")
 abline(v=1983+1/12, lty=3)
+
+# border
+areaplot(circumference~age+Tree, Orange)
+areaplot(circumference~age+Tree, Orange, border=NA)
 
 # legend
 require(MASS)

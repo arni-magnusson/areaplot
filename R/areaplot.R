@@ -17,6 +17,8 @@
 #' @param add whether polygons should be added to an existing plot.
 #' @param xlab a label for x axis.
 #' @param ylab a label for y axis.
+#' @param border border color of polygon(s). The default is to draw borders in
+#'        the foreground color. Pass \code{NA} to omit borders.
 #' @param col fill color of polygon(s). The default is a vector of gray colors.
 #' @param legend a logical indicating whether a legend should be added, or a
 #'        vector of strings for the legend. This only applies when more than one
@@ -79,6 +81,10 @@
 #'          ylab="Killed or seriously injured")
 #' abline(v=1983+1/12, lty=3)
 #'
+#' # border
+#' areaplot(circumference~age+Tree, Orange)
+#' areaplot(circumference~age+Tree, Orange, border=NA)
+#'
 #' # legend
 #' require(MASS)
 #' areaplot(table(Aids2$age, Aids2$sex), legend=TRUE, col=c(2,4))
@@ -103,8 +109,8 @@ areaplot <- function(x, ...)
 #' @export areaplot.default
 
 areaplot.default <- function(x, y=NULL, prop=FALSE, rev=FALSE, add=FALSE,
-                             xlab=NULL, ylab=NULL, col=NULL, legend=FALSE,
-                             args.legend=NULL, ...)
+                             xlab=NULL, ylab=NULL, border=NULL, col=NULL,
+                             legend=FALSE, args.legend=NULL, ...)
 {
   if(is.ts(x)) # ts/mts
   {
@@ -187,7 +193,7 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, rev=FALSE, add=FALSE,
   for(i in 1:(ncol(y)-1))
   {
     yy <- c(y[,i+1], rev(y[,i]))
-    suppressWarnings(polygon(xx, yy, col=col[i], ...))
+    suppressWarnings(polygon(xx, yy, border=border, col=col[i], ...))
   }
 
   if(is.logical(legend))

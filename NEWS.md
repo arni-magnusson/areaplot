@@ -1,3 +1,10 @@
+# areaplot 2.1.3 (2025-01-28)
+
+* Added argument 'border' to areaplot() as an explicit argument.
+
+
+
+
 # areaplot 2.1.2 (2024-01-15)
 
 * Improved confplot() so it supports 'x' to be out of order.
