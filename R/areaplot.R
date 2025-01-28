@@ -81,7 +81,7 @@
 #'          ylab="Killed or seriously injured")
 #' abline(v=1983+1/12, lty=3)
 #'
-#' # border
+#' # border=NA
 #' areaplot(circumference~age+Tree, Orange)
 #' areaplot(circumference~age+Tree, Orange, border=NA)
 #'
