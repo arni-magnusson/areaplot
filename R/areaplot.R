@@ -54,7 +54,7 @@
 #'
 #' # formula
 #' areaplot(Armed.Forces~Year, data=longley)
-#' areaplot(cbind(Armed.Forces,Unemployed)~Year, data=longley)
+#' areaplot(cbind(Unemployed,Armed.Forces)~Year, data=longley)
 #' areaplot(.~Year, data=longley)
 #' areaplot(circumference~age+Tree, Orange)
 #'
