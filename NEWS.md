@@ -2,6 +2,8 @@
 
 * Added argument 'border' to areaplot() as an explicit argument.
 
+* Improved areaplot() so it supports 'x' to be out of order.
+
 
 
 
