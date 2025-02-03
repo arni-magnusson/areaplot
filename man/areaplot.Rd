@@ -107,6 +107,12 @@ areaplot(Seatbelts[,c("drivers","front","rear")],
          ylab="Killed or seriously injured")
 abline(v=1983+1/12, lty=3)
 
+# POSIXt and Date
+airquality$Time <- ISOdate(1973, airquality$Month, airquality$Day)
+airquality$Date <- as.Date(airquality$Time)
+areaplot(Wind~Time, airquality, col="skyblue")
+areaplot(Wind~Date, airquality, col="linen")
+
 # border=NA
 areaplot(circumference~age+Tree, Orange)
 areaplot(circumference~age+Tree, Orange, border=NA)
