@@ -184,8 +184,8 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, rev=FALSE, add=FALSE,
     y <- prop.table(y, 1)
   y <- t(rbind(0, apply(y, 1, cumsum)))
   na <- is.na(x) | apply(is.na(y), 1, any)
-  x <- x[!na][order(x[!na])]
   y <- y[!na,][order(x[!na]),]
+  x <- x[!na][order(x[!na])]
 
   if(!add)
     suppressWarnings(matplot(x, y, type="n", xlab=xlab, ylab=ylab, ...))
