@@ -177,7 +177,7 @@ areaplot.default <- function(x, y=NULL, prop=FALSE, rev=FALSE, add=FALSE,
   col <- rep(col, length.out=ncol(y))
   if(!rev)
   {
-    y <- as.matrix(rev(as.data.frame(y)))
+    y <- y[, ncol(y):1, drop=FALSE]
     col <- rev(col)
   }
   if(prop)
@@ -245,6 +245,7 @@ areaplot.formula <- function(formula, data, subset, na.action, xlab=NULL,
     stop("formula must specify 1 or 2 variables after the tilde")
   if(anyDuplicated(mf[-1]))
     stop("duplicated values after the tilde - try another formula or subset")
+  x <- sort(unique(mf[[2]]))
   if(is.null(xlab))
     xlab <- names(mf)[2]
   if(is.matrix(mf[[1]]))
@@ -253,13 +254,12 @@ areaplot.formula <- function(formula, data, subset, na.action, xlab=NULL,
     if(ncol(mf[-1]) != 1)
       stop("formula with cbind() must specify 1 variable after the tilde")
     lhs <- mf[[1]]
-    rownames(lhs) <- mf[[ncol(mf)]]
-    areaplot.default(lhs, xlab=xlab, ylab=ylab, ...)
+    areaplot.default(x, lhs, xlab=xlab, ylab=ylab, ...)
   }
   else
   {
     if(is.null(ylab))
       ylab <- names(mf)[1]
-    areaplot.default(xtabs(mf, addNA=TRUE), xlab=xlab, ylab=ylab, ...)
+    areaplot.default(x, xtabs(mf, addNA=TRUE), xlab=xlab, ylab=ylab, ...)
   }
 }
