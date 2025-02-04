@@ -118,6 +118,8 @@ confplot.default <- function(x, y1=NULL, y2=NULL, add=FALSE, xlab=NULL,
 
   if(is.null(ylab))
     ylab <- ""
+  if(anyDuplicated(x))
+    stop("duplicated values on x-axis are not allowed")
 
   na <- is.na(x) | is.na(y1) | is.na(y2)
   y1 <- y1[!na][order(x[!na])]  # reorder y1 by x

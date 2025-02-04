@@ -2,6 +2,9 @@
 
 * Added argument 'border' to areaplot() as an explicit argument.
 
+* Added error message to areaplot() and confplot() if x-axis values are
+  duplicated.
+
 * Improved areaplot() so it supports 'x' to be out of order.
 
 * Improved areaplot() so it supports 'x' of class POSIXt and Date.
