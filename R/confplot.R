@@ -1,6 +1,6 @@
-#' Plot Confidence Bands
+#' Plot Confidence Band
 #'
-#' Plot confidence bands of lower and upper y values as a filled area, or add
+#' Plot a confidence band of lower and upper y values as a filled area, or add
 #' polygon to an existing plot.
 #'
 #' @param x a numeric vector of x values. Alternatively, \code{x} can be a
@@ -11,7 +11,7 @@
 #'        columns.
 #' @param y2 a numeric vector of upper y values, if not already supplied in
 #'        \code{x} or \code{y1}.
-#' @param add whether confidence bands should be added to an existing plot.
+#' @param add whether the confidence band should be added to an existing plot.
 #' @param xlab a label for x axis.
 #' @param ylab a label for y axis.
 #' @param border border color of polygon. The default \code{NA} is to omit

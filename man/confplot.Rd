@@ -4,7 +4,7 @@
 \alias{confplot}
 \alias{confplot.default}
 \alias{confplot.formula}
-\title{Plot Confidence Bands}
+\title{Plot Confidence Band}
 \usage{
 confplot(x, ...)
 
@@ -28,7 +28,7 @@ columns.}
 \item{y2}{a numeric vector of upper y values, if not already supplied in
 \code{x} or \code{y1}.}
 
-\item{add}{whether confidence bands should be added to an existing plot.}
+\item{add}{whether the confidence band should be added to an existing plot.}
 
 \item{xlab}{a label for x axis.}
 
@@ -56,7 +56,7 @@ the given variables.}
 Data frame of coordinates that were used for plotting.
 }
 \description{
-Plot confidence bands of lower and upper y values as a filled area, or add
+Plot a confidence band of lower and upper y values as a filled area, or add
 polygon to an existing plot.
 }
 \examples{

@@ -13,7 +13,7 @@ vectors, matrices, data frames, formulas, etc.
 \emph{Plot:}
 \tabular{ll}{
   \code{\link{areaplot}} \tab stacked area\cr
-  \code{\link{confplot}} \tab confidence bands
+  \code{\link{confplot}} \tab confidence band
 }
 }
 \seealso{
